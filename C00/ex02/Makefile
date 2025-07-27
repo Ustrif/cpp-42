@@ -1,5 +1,5 @@
 SRCS = Account.cpp tests.cpp
-NAME = acccount
+NAME = account
 FLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = c++
 
