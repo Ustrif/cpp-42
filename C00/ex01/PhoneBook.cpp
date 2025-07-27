@@ -10,6 +10,8 @@ PhoneBook::PhoneBook()
 
 void	PhoneBook::updateCapacity(void)
 {
+	if (capacity == 8)
+		return ;
 	this->capacity += 1;
 }
 
@@ -18,8 +20,8 @@ void	PhoneBook::addContact(int id, std::string name, std::string sname,
 {
 	int	index;
 
-	index = capacity % 8;
-	contacts[index].setId(id);
+	index = id % 8;
+	contacts[index].setId(index);
 	contacts[index].setName(name);
 	contacts[index].setSname(sname);
 	contacts[index].setPhone(phone);
