@@ -1,0 +1,6 @@
+#auto generated files
+.vscode
+
+#executable files
+.out
+.exe
