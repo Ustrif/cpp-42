@@ -1,4 +1,4 @@
-SRCS = *.cpp
+SRCS = main.cpp
 NAME = sed
 FLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = c++
