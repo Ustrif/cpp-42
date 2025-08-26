@@ -98,6 +98,11 @@ Fixed Fixed::operator - (const Fixed &other)
 Fixed Fixed::operator / (const Fixed &other)
 {
 	Fixed result;
+	if (other.getRawBits() == 0)
+	{
+		std::cout << "Zero division err\n" << std::endl;
+		return result;
+	}
     result.setRawBits((this->fpVal << 8) / other.getRawBits());
     return result;
 }
