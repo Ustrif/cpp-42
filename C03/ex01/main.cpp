@@ -1,13 +1,14 @@
 #include <iostream>
 #include <string>
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main( void )
 {
-	ClapTrap	ct("R");
+	ScavTrap	st("onion");
 
-	ct.attack("Merhaba");
-	ct.beRepaired(1);
-	ct.takeDamage(3);
+	st.guardGate();
+	st.attack("xx");
+	st.takeDamage(38);
+	st.takeDamage(1000);
 	return 0;
 }

@@ -2,6 +2,15 @@
 #include <string>
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap()
+{
+	std::cout << "ClapTrap default constructor" << std::endl;
+	this->name = "name";
+	this->attackDamage = 0;
+	this->energyPoints = 10;
+	this->hitPoints = 10;
+}
+
 ClapTrap::ClapTrap(std::string name)
 {
 	std::cout << "ClapTrap constructor" << std::endl;

@@ -2,6 +2,15 @@
 #include <string>
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap()
+{
+	std::cout << "ClapTrap default constructor" << std::endl;
+	this->name = "name";
+	this->attackDamage = 0;
+	this->energyPoints = 10;
+	this->hitPoints = 10;
+}
+
 ClapTrap::ClapTrap(std::string name)
 {
 	std::cout << "ClapTrap constructor" << std::endl;
@@ -83,4 +92,44 @@ void	ClapTrap::beRepaired(unsigned int amount)
 				<< " is reapired: "
 				<< amount
 				<< ".\n";
+}
+
+void ClapTrap::setHitPoints(unsigned int amount)
+{
+	this->hitPoints = amount;
+}
+
+void ClapTrap::setEnergyPoints(unsigned int amount)
+{
+	this->energyPoints = amount;
+}
+
+void ClapTrap::setAttackDamage(unsigned int amount)
+{
+	this->attackDamage = amount;
+}
+
+unsigned int ClapTrap::getHitPoints()
+{
+	return (this->hitPoints);
+}
+
+unsigned int ClapTrap::getEnergyPoints()
+{
+	return (this->energyPoints);
+}
+
+unsigned int ClapTrap::getAttackDamage()
+{
+	return (this->attackDamage);
+}
+
+std::string ClapTrap::getName()
+{
+	return (this->name);
+}
+
+void ClapTrap::setName(std::string name)
+{
+	this->name = name;
 }
