@@ -1,0 +1,21 @@
+#ifndef __ANIMAL__
+#define __ANIMAL__
+
+#include <string>
+
+class Animal
+{
+	public:
+		Animal();
+		Animal(std::string type);
+		virtual ~Animal();
+		Animal(const Animal &other);
+		Animal &operator=(const Animal &other);
+		void setType(std::string type);
+		std::string getType( void ) const;
+		virtual void makeSound( void ) const = 0;
+	protected:
+		std::string type;
+};
+
+#endif // __ANIMAL__
