@@ -1,4 +1,4 @@
-SRCS = *.cpp
+SRCS = main.cpp Cat.cpp Dog.cpp Animal.cpp
 NAME = poly
 CXX = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98

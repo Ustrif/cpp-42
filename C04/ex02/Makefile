@@ -1,4 +1,4 @@
-SRCS = *.cpp
+SRCS = main.cpp Dog.cpp Cat.cpp Brain.cpp Animal.cpp
 NAME = abstract
 CXX = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
