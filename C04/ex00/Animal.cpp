@@ -10,7 +10,7 @@ Animal::Animal()
 
 Animal::Animal(std::string type)
 {
-	std::cout << "Constructor with param\n";
+	std::cout << "Constructor with param for Animal\n";
 	this->setType(type);
 }
 
@@ -42,7 +42,7 @@ std::string Animal::getType( void ) const
 	return (this->type);
 }
 
-void Animal::makeSound( void )
+void Animal::makeSound( void ) const
 {
 	std::cout << "You can hear a " << this->getType() << " sound, now.\n";
 }
