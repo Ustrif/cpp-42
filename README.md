@@ -18,4 +18,7 @@ This module is designed to help you understand inheritance in C++.
 ## C04
 This module is designed to help you understand subtype polymorphism, abstract classes, and interfaces in C++.
 
+## C05
+This module is designed to help you understand try/catch and exceptions in C++.
+
 ...
