@@ -1,0 +1,41 @@
+#ifndef __BURE__
+#define __BURE__
+
+#include <string>
+#include <iostream>
+#include <exception>
+
+class Bureaucrat
+{
+	private:
+		std::string	name;
+		size_t		grade;
+	public:
+		Bureaucrat();
+		Bureaucrat(std::string name, int grade);
+		~Bureaucrat();
+		Bureaucrat(const Bureaucrat &other);
+		Bureaucrat &operator=(const Bureaucrat &other);
+		size_t	getGrade() const;
+		std::string getName() const;
+		void	setName(std::string name);
+		void	setGrade(size_t grade);
+		void	gradeIncrement();
+		void	gradeDecrement(); 
+		class GradeTooHighException : public std::exception
+		{
+			public:
+				GradeTooHighException(){}
+				const char* what() const noexcept;
+		};
+		class GradeTooLowException : public std::exception
+		{
+			public:
+				GradeTooLowException() {}
+				const char* what() const noexcept;
+		};
+};
+
+std::ostream& operator << (std::ostream& os, const Bureaucrat& b);
+
+#endif // __BURE__
