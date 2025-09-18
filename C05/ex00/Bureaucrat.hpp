@@ -8,8 +8,8 @@
 class Bureaucrat
 {
 	private:
-		std::string	name;
-		size_t		grade;
+		const std::string	name;
+		size_t				grade;
 	public:
 		Bureaucrat();
 		Bureaucrat(std::string name, int grade);
@@ -18,7 +18,6 @@ class Bureaucrat
 		Bureaucrat &operator=(const Bureaucrat &other);
 		size_t	getGrade() const;
 		std::string getName() const;
-		void	setName(std::string name);
 		void	setGrade(size_t grade);
 		void	gradeIncrement();
 		void	gradeDecrement(); 

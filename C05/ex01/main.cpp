@@ -1,44 +1,45 @@
 #include "Bureaucrat.hpp"
 #include <iostream>
+#include "Form.hpp"
+#include <string>
 
-void	tester(std::string str, int param)
+void	tester(std::string str, int sing, int exec, Bureaucrat *br)
 {
-	Bureaucrat *br;
-
+	Form	*form;
+	
 	std::cout << "---" << std::endl;
 	try
 	{
-		br = new Bureaucrat(str, param);
-		std::cout << *br << std::endl;
+		form = new Form(str, sing, exec);
 	}
-	catch (std::exception &e)
+	catch(const std::exception& e)
 	{
-		std::cout << e.what() << std::endl;
+		std::cout << "ERROR TO CREATE FORM: ";
+		std::cout << e.what();
 		return ;
 	}
 	try
 	{
-		br->gradeDecrement();
-		std::cout << *br << std::endl;
-		br->gradeIncrement();
-		br->gradeIncrement();
-		std::cout << *br << std::endl;
+		std::cout << *form << std::endl;
+		br->signForm(*form);
 	}
-	catch (std::exception &e)
+	catch (const std::exception& e)
 	{
-		std::cout << e.what() << std::endl;
-		std::cout << *br << std::endl;
+		std::cout << e.what() << '\n';
 	}
-	delete(br);
-	std::cout << "---" << std::endl;
+	std::cout << *form << std::endl;
+	delete(form);
+	std::cout << "---" << std::endl;	
 }
 
 int	main ( void )
 {
-	tester("LOW", -1);
-	tester("HIGH", 200);
-	tester("NO ERR", 50);
-	tester("UP LIMIT", 150);
-	tester("DOWN LIMIT", 1);
+	Bureaucrat *br = new Bureaucrat("20LVL", 20);
+	tester("FORM1", 20, 20, br);
+	tester("FORM2", 5, 5, br);
+	tester("FORM3", 100, 100, br);
+	tester("FORMUP", 200, 200, br);
+	tester("FORMDOWN", -1, -1, br);
+	delete(br);
 	return (0);
 }

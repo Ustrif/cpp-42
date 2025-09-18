@@ -2,19 +2,19 @@
 #include <iostream>
 #include <string>
 
-Bureaucrat::Bureaucrat()
+Bureaucrat::Bureaucrat() : name("name")
 {
 	std::cout << "Defualt constructor for Bureaucrat\n";
-	this->setName("name");
 	this->setGrade(150);
 }
 
-Bureaucrat::Bureaucrat(std::string name, int grade) : name(name), grade(grade)
+Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 {
 	if (grade > 150)
 		throw (Bureaucrat::GradeTooHighException());
 	if (grade < 1)
 		throw (Bureaucrat::GradeTooLowException());
+	this->setGrade(grade);
 	std::cout << "Constructor with param for Bureaucrat\n";
 }
 
@@ -23,7 +23,7 @@ Bureaucrat::~Bureaucrat()
 	std::cout << "Destructor for Bureaucrat\n";
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other)
+Bureaucrat::Bureaucrat(const Bureaucrat &other) : name(other.getName())
 {
 	std::cout << "Copy Constructor for Bureaucrat\n";
 	*this = other;
@@ -32,7 +32,6 @@ Bureaucrat::Bureaucrat(const Bureaucrat &other)
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 {
 	std::cout << "Copy Assigment Operator for Bureaucrat\n";
-	this->setName(other.getName());
 	this->setGrade(other.getGrade());
 	return (*this);
 }
@@ -45,11 +44,6 @@ size_t	Bureaucrat::getGrade() const
 std::string Bureaucrat::getName() const
 {
 	return (this->name);
-}
-
-void	Bureaucrat::setName(std::string name)
-{
-	this->name = name;
 }
 
 void	Bureaucrat::setGrade(size_t grade)
