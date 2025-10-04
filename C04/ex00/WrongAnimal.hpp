@@ -1,0 +1,21 @@
+#ifndef __WANIMAL__
+#define __WANIMAL__
+
+#include <string>
+
+class WrongAnimal
+{
+	public:
+		WrongAnimal();
+		WrongAnimal(std::string type);
+		virtual ~WrongAnimal();
+		WrongAnimal(const WrongAnimal &other);
+		WrongAnimal &operator=(const WrongAnimal &other);
+		void setType(std::string type);
+		std::string getType( void ) const;
+		void makeSound( void ) const;
+	protected:
+		std::string type;
+};
+
+#endif // __WANIMAL__

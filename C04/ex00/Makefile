@@ -1,4 +1,4 @@
-SRCS = main.cpp Cat.cpp Dog.cpp Animal.cpp
+SRCS = main.cpp Cat.cpp Dog.cpp Animal.cpp WrongAnimal.cpp WrongCat.cpp
 NAME = poly
 CXX = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
