@@ -1,26 +1,18 @@
 #include <iostream>
 #include <string>
-#include "ScavTrap.hpp"
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main( void )
 {
-	ScavTrap *st = new ScavTrap("ScavHeap");
+	DiamondTrap	*diamondTrap = new DiamondTrap("r");
 
-	st->attack("ben");
-	st->beRepaired(30);
-	st->guardGate();
-	st->takeDamage(10000);
-	delete (st);
-
-	std::cout << "---\n";
-
-	FragTrap *ft = new FragTrap();
-	ft->attack("sen");
-	ft->beRepaired(91);
-	ft->highFivesGuys();
-	ft->takeDamage(1);
-	delete (ft);
-
+	diamondTrap->showStatics();
+	diamondTrap->attack("other one diamond trap");
+	diamondTrap->highFivesGuys();
+	diamondTrap->guardGate();
+	diamondTrap->beRepaired(100);
+	diamondTrap->takeDamage(35);
+	diamondTrap->showStatics();
+	delete (diamondTrap);
 	return (0);
 }

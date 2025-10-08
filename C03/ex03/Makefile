@@ -1,5 +1,5 @@
-SRCS = main.cpp  ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
-NAME = ft
+SRCS = main.cpp  ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
+NAME = diamond
 FLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = c++
 
