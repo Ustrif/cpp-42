@@ -57,12 +57,12 @@ size_t		Form::getGradeExecute() const
 	return (this->gradeExecute);
 }
 
-const char* Form::GradeTooHighException::what() const noexcept
+const char* Form::GradeTooHighException::what() const throw()
 {
 	return ("Grade is too high.\n");
 }
 
-const char* Form::GradeTooLowException::what() const noexcept
+const char* Form::GradeTooLowException::what() const throw()
 {
 	return ("Grade is too low.\n");
 }

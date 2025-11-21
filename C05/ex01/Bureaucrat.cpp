@@ -52,12 +52,12 @@ void	Bureaucrat::setGrade(size_t grade)
 	this->grade = grade;
 }
 
-const char* Bureaucrat::GradeTooHighException::what() const noexcept
+const char* Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return ("Grade too high!");
 }
 
-const char* Bureaucrat::GradeTooLowException::what() const noexcept
+const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return ("Grade too low!");
 }
