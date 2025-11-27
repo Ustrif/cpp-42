@@ -5,34 +5,22 @@
 void	runHarl( int lvl )
 {
 	Harl harl = Harl();
-	int	i;
-
-	i = 0;
-	while (i <= lvl)
-	{
-		switch (i)
+	switch (lvl)
 		{
 			case 0:
 				harl.complain("DEBUG");
-				harl.complain("DEBUG");
-				harl.complain("DEBUG");
-				break ;
+				/* fall through */
 			case 1:
 				harl.complain("INFO");
-				break ;
+				/* fall through */
 			case 2:
 				harl.complain("WARNING");
-				harl.complain("WARNING");
-				break ;
+				/* fall through */
 			case 3:
-				harl.complain("ERROR");
-				harl.complain("ERROR");
-				harl.complain("ERROR");
 				harl.complain("ERROR");
 				break ;
 		}
-		i++;
-	}
+
 	return ;
 }
 

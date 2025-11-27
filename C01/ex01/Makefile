@@ -1,4 +1,4 @@
-SRCS = main.cpp Zombie.hpp Zombie.cpp zombieHorde.cpp
+SRCS = main.cpp Zombie.cpp zombieHorde.cpp
 NAME = zombie
 FLAGS = -Wall -Wextra -Werror -std=c++98
 CXX = c++

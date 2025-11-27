@@ -15,6 +15,20 @@ int	main(int argc, char *argv[])
 	std::string	willFind = argv[2];
 	std::string	willWrite = argv[3];
 
+	if (infileName.empty() || willFind.empty() || willWrite.empty())
+	{
+			std::cout << "Invalid arguments.\n";
+			return (1);
+	}
+
+	std::ifstream fileRead(infileName.c_str());
+	if (!fileRead.is_open())
+	{
+			std::cout << "Invalid infile.\n";
+			return (1);
+	}
+	fileRead.close();
+
 	std::ofstream fileWrite(outfileName.c_str());
 	bool	firstLine = true;
 	if (fileWrite.is_open())
