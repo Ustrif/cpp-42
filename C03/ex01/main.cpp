@@ -9,6 +9,7 @@ int main( void )
 	st.guardGate();
 	st.attack("xx");
 	st.takeDamage(38);
+	st.beRepaired(20);
 	st.takeDamage(1000);
 	return 0;
 }
