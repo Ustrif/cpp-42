@@ -71,7 +71,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 {
 	if (this->hitPoints < amount)
 	{
-		std::cout << "ClapTrap " << this->name << " died.";
+		std::cout << "ClapTrap " << this->name << " died.\n";
 		this->hitPoints = 0;
 	}
 	else
