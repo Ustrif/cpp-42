@@ -11,14 +11,6 @@ class ClapTrap
 		unsigned int	hitPoints;
 		unsigned int	energyPoints;
 		unsigned int	attackDamage;
-		void setHitPoints(unsigned int amount);
-		void setEnergyPoints(unsigned int amount);
-		void setAttackDamage(unsigned int amount);
-		void setName(std::string name);
-		unsigned int getHitPoints();
-		unsigned int getEnergyPoints();
-		unsigned int getAttackDamage();
-		std::string getName();
 	public:
 		ClapTrap();
 		ClapTrap(std::string name);

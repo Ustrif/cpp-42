@@ -5,17 +5,17 @@
 ScavTrap::ScavTrap() : ClapTrap()
 {
 	std::cout << "ScavTrap default constructor" << std::endl;
-	setAttackDamage(20);
-	setHitPoints(100);
-	setEnergyPoints(50);
+	this->hitPoints = 100;
+	this->energyPoints = 50;
+	this->attackDamage = 20;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
 	std::cout << "ScavTrap constructor" << std::endl;
-	setAttackDamage(20);
-	setHitPoints(100);
-	setEnergyPoints(50);
+	this->hitPoints = 100;
+	this->energyPoints = 50;
+	this->attackDamage = 20;
 }
 
 ScavTrap::~ScavTrap()
@@ -27,20 +27,21 @@ ScavTrap::~ScavTrap()
 ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
 {
 	std::cout << "ScavTrap cp.\n";
-	setAttackDamage(20);
-	setHitPoints(100);
-	setEnergyPoints(50);
+	this->hitPoints = 100;
+	this->energyPoints = 50;
+	this->attackDamage = 20;
 }
 
 ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 {
+	std::cout << "ScavTrap copy assigment operator" << std::endl;
 	if (&other != this)
 	{
 		ClapTrap::operator=(other);
 	}
-	setAttackDamage(20);
-	setHitPoints(100);
-	setEnergyPoints(50);
+	this->hitPoints = 100;
+	this->energyPoints = 50;
+	this->attackDamage = 20;
 	return (*this);
 }
 
@@ -51,9 +52,9 @@ void ScavTrap::guardGate()
 
 void ScavTrap::attack(const std::string& target)
 {
-	if (getEnergyPoints() > 0 && getHitPoints() != 0)
+	if (this->energyPoints > 0 && this->hitPoints != 0)
 	{
-		setEnergyPoints(getEnergyPoints() - 1);
+		this->energyPoints -= 1;
 	}
 	else
 	{
@@ -61,44 +62,11 @@ void ScavTrap::attack(const std::string& target)
 		return ;
 	}
 	std::cout	<< "ScavTrap "
-				<< getName()
+				<< this->name
 				<< " attacks " 
 				<< target
 				<< ", causing "
-				<< getAttackDamage()
+				<< this->attackDamage
 				<< " points of damage!"
 				<< std::endl;
-}
-
-void ScavTrap::takeDamage(unsigned int amount)
-{
-	if (getHitPoints() < amount)
-	{
-		setHitPoints(0);
-		std::cout << "ScavTrap is dead.\n";
-	}
-	else
-	{
-		setHitPoints(getHitPoints() - amount);
-		std::cout << "ScavTrap took damage. Health: " << getHitPoints() << std::endl;
-	}
-}
-
-void ScavTrap::beRepaired(unsigned int amount)
-{
-	if (getEnergyPoints() > 0)
-	{
-		setHitPoints(getHitPoints() + amount);
-		setEnergyPoints(getEnergyPoints() - 1);
-	}
-	else
-	{
-		std::cout << "No energy points.\n";
-		return ;
-	}
-	std::cout	<< "ScavTrap "
-				<< getName()
-				<< " is reapired: "
-				<< amount
-				<< ".\n";
 }
