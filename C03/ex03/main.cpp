@@ -13,6 +13,8 @@ int main( void )
 	diamondTrap->beRepaired(100);
 	diamondTrap->takeDamage(35);
 	diamondTrap->showStatics();
+	diamondTrap->whoAmI();
+
 	delete (diamondTrap);
 	return (0);
 }
