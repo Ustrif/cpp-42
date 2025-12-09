@@ -11,7 +11,7 @@ class Cat : public Animal
 		Brain *brain;
 	public:
 		Cat();
-		~Cat();
+		virtual ~Cat();
 		Cat(std::string type);
 		Cat(const Cat &other);
 		Cat &operator=(const Cat &other);
