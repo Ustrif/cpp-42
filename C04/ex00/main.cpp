@@ -22,7 +22,7 @@ int main()
 
 	std::cout << "\n-----\n\n";
 
-	const WrongAnimal* cat = new WrongCat("kedy");
+	const WrongAnimal* cat = new WrongCat();
 	std::cout << "type of cat " << cat->getType() << " .\n";
 	cat->makeSound();
 	delete (cat);
