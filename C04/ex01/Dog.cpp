@@ -5,7 +5,7 @@
 Dog::Dog() : Animal()
 {
 	std::cout << "Default constructor for Dog.\n";
-	this->setType("default-dog");
+	this->setType("Dog");
 	this->brain = new Brain();
 }
 
@@ -13,13 +13,6 @@ Dog::~Dog()
 {
 	std::cout << "Destructor for Dog\n";
 	delete(this->brain);
-}
-
-Dog::Dog(std::string type) : Animal(type)
-{
-	std::cout << "Dog constructor with param\n";
-	this->setType(type);
-	this->brain = new Brain();
 }
 
 Dog::Dog(const Dog &other) : Animal(other)
