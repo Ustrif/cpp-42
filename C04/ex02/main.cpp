@@ -6,7 +6,7 @@
 
 int main( void )
 {
-	Animal *animal = new Cat("b");
+	Animal *animal = new Cat();
 	animal->makeSound();
 	delete(animal);
 	return 0;

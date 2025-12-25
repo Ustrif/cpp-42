@@ -5,7 +5,7 @@
 Cat::Cat() : Animal()
 {
 	std::cout << "Default constructor for Cat.\n";
-	this->setType("default-Cat");
+	this->setType("Cat");
 	this->brain = new Brain();
 }
 
@@ -15,18 +15,11 @@ Cat::~Cat()
 	delete(this->brain);
 }
 
-Cat::Cat(std::string type) : Animal(type)
-{
-	std::cout << "Cat constructor with param\n";
-	this->setType(type);
-	this->brain = new Brain();
-}
-
 Cat::Cat(const Cat &other) : Animal(other)
 {
 	this->setType(other.getType());
 	std::cout << "Cat copy constructor\n";
-	this->brain = new Brain();
+	this->brain = new Brain(*other.brain);
 }
 
 Cat &Cat::operator=(const Cat &other)
@@ -37,6 +30,8 @@ Cat &Cat::operator=(const Cat &other)
     	return (*this);
 	}
 	this->setType(other.getType());
+	delete(this->brain);
+	this->brain = new Brain(*other.brain);
 	std::cout << "Cat assigment operator\n";
 	return (*this);
 }
@@ -44,4 +39,9 @@ Cat &Cat::operator=(const Cat &other)
 void Cat::makeSound( void ) const
 {
 	std::cout << "Miav, Miyav!\n";
+}
+
+Brain* Cat::getBrainAddress() const
+{
+	return (this->brain);
 }

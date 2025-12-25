@@ -12,10 +12,10 @@ class Cat : public Animal
 	public:
 		Cat();
 		virtual ~Cat();
-		Cat(std::string type);
 		Cat(const Cat &other);
 		Cat &operator=(const Cat &other);
 		void makeSound( void ) const;
+		Brain* getBrainAddress() const;
 };
 
 #endif //__CAT__
