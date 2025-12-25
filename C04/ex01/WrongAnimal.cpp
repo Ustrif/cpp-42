@@ -8,12 +8,6 @@ WrongAnimal::WrongAnimal()
 	this->setType("WrongAnimal");
 }
 
-WrongAnimal::WrongAnimal(std::string type)
-{
-	std::cout << "Constructor with param for WrongAnimal\n";
-	this->setType(type);
-}
-
 WrongAnimal::~WrongAnimal()
 {
 	std::cout << "Destructor for WrongAnimal\n";
