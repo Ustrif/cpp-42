@@ -29,3 +29,20 @@ Brain &Brain::operator=(const Brain &other)
 	}
 	return (*this);
 }
+
+void Brain::setIdea(int index, const std::string& idea)
+{
+	if (index >= 0 && index < 100)
+	{
+		ideas[index] = idea;
+	}
+}
+
+void Brain::displayIdeas() const
+{
+	for (int i = 0; i < 100; ++i)
+	{
+		if (!ideas[i].empty())
+			std::cout << "idea " << i << ": " << ideas[i] << "\n";
+	}
+}
