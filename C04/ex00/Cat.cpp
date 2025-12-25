@@ -5,18 +5,12 @@
 Cat::Cat() : Animal()
 {
 	std::cout << "Default constructor for Cat.\n";
-	this->setType("default-Cat");
+	this->setType("Cat");
 }
 
 Cat::~Cat()
 {
 	std::cout << "Destructor for Cat\n";
-}
-
-Cat::Cat(std::string type) : Animal(type)
-{
-	std::cout << "Cat constructor with param\n";
-	this->setType(type);
 }
 
 Cat::Cat(const Cat &other) : Animal(other)

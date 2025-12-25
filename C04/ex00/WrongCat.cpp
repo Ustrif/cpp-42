@@ -5,18 +5,12 @@
 WrongCat::WrongCat() : WrongAnimal()
 {
 	std::cout << "Default constructor for WrongCat.\n";
-	this->setType("default-WrongCat");
+	this->setType("WrongCat");
 }
 
 WrongCat::~WrongCat()
 {
 	std::cout << "Destructor for WrongCat\n";
-}
-
-WrongCat::WrongCat(std::string type) : WrongAnimal(type)
-{
-	std::cout << "WrongCat constructor with param\n";
-	this->setType(type);
 }
 
 WrongCat::WrongCat(const WrongCat &other) : WrongAnimal(other)
