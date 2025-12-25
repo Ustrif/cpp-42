@@ -8,12 +8,6 @@ Animal::Animal()
 	this->setType("Animal");
 }
 
-Animal::Animal(std::string type)
-{
-	std::cout << "Constructor with param for Animal\n";
-	this->setType(type);
-}
-
 Animal::~Animal()
 {
 	std::cout << "Destructor for Animal\n";
