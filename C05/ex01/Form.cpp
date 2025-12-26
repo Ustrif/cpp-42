@@ -3,18 +3,13 @@
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form() : name("name"), gradeSign(20), gradeExecute(20)
-{
-	std::cout << "Default constructor for Form\n";
-	this->sign = false;
-}
-
 Form::Form(std::string name, int gradeSign, int gradeExecute) : name(name), gradeSign(gradeSign), gradeExecute(gradeExecute)
 {
 	if (gradeSign > 150 || gradeExecute > 150)
 		throw Form::GradeTooHighException();
 	if (gradeSign < 1 || gradeExecute < 1)
 		throw Form::GradeTooLowException();
+
 	std::cout << "Constructor for Form\n";
 	this->sign = false;
 }
@@ -27,12 +22,14 @@ Form::~Form()
 Form::Form(const Form &other) : name(other.getName()), gradeSign(other.getGradeSign()), gradeExecute(other.getGradeExecute())
 {
 	std::cout << "Copy Constructor for Form\n";
-	*this = other;
+
+	this->sign = other.isSigned();
 }
 
 Form & Form::operator = (const Form &other)
 {
 	std::cout << "Copy Assigment Operator for Form\n";
+
 	this->sign = other.isSigned();
 	return (*this);
 }
@@ -59,12 +56,12 @@ size_t		Form::getGradeExecute() const
 
 const char* Form::GradeTooHighException::what() const throw()
 {
-	return ("Grade is too high.\n");
+	return ("Grade is too high.");
 }
 
 const char* Form::GradeTooLowException::what() const throw()
 {
-	return ("Grade is too low.\n");
+	return ("Grade is too low.");
 }
 
 std::ostream & operator << (std::ostream &os, Form& form)
@@ -81,11 +78,9 @@ void		Form::beSigned(Bureaucrat& bureaucrat)
 	if (bureaucrat.getGrade() <= this->getGradeSign())
 	{
 		this->sign = true;
-		std::cout << bureaucrat.getName() << " signed " << this->getName() << std::endl;
 	}
 	else
 	{
-		std::cout << bureaucrat.getName() << " couldn’t sign " << this->getName() << " because ";
 		throw Form::GradeTooLowException();
 	}
 }
