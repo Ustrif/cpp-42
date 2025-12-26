@@ -1,4 +1,10 @@
-SRCS = *.cpp
+SRCS =	main.cpp \
+		AForm.cpp \
+		Bureaucrat.cpp \
+		PresidentialPardonForm.cpp \
+		RobotomyRequestForm.cpp \
+		ShrubberyCreationForm.cpp
+
 CXX = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = bure
