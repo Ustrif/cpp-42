@@ -84,3 +84,24 @@ void		AForm::beSigned(Bureaucrat& bureaucrat)
 		throw AForm::GradeTooLowException();
 	}
 }
+
+const char* AForm::UnsignedFormException::what() const throw()
+{
+	return ("This form is unsigned.");
+}
+
+void		AForm::execute(Bureaucrat const & executor) const
+{
+	if (!this->isSigned())
+	{
+		throw AForm::UnsignedFormException();
+	}
+	else if (this->getGradeExecute() < executor.getGrade())
+	{
+		throw AForm::GradeTooLowException();
+	}
+	else
+	{
+		this->executeAction();
+	}
+}

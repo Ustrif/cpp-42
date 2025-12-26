@@ -15,6 +15,10 @@ class AForm
 		bool			sign;
 		const size_t	gradeSign;
 		const size_t	gradeExecute;
+
+	protected:
+		virtual void executeAction() const = 0;
+
 	public:
 		AForm(std::string name, int gradeSign, int gradeExecute);
 		~AForm();
@@ -28,12 +32,19 @@ class AForm
 
 		void		beSigned(Bureaucrat& bureaucrat);
 
+		void		execute(Bureaucrat const & executor) const;
+
 		class GradeTooHighException : public std::exception
 		{
 			public:
 				const char* what() const throw();
 		};
 		class GradeTooLowException : public std::exception
+		{
+			public:
+				const char* what() const throw();
+		};
+		class UnsignedFormException : public std::exception
 		{
 			public:
 				const char* what() const throw();
