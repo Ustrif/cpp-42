@@ -3,18 +3,13 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-AForm::AForm() : name("name"), gradeSign(20), gradeExecute(20)
-{
-	std::cout << "Default constructor for AForm\n";
-	this->sign = false;
-}
-
 AForm::AForm(std::string name, int gradeSign, int gradeExecute) : name(name), gradeSign(gradeSign), gradeExecute(gradeExecute)
 {
 	if (gradeSign > 150 || gradeExecute > 150)
 		throw AForm::GradeTooHighException();
 	if (gradeSign < 1 || gradeExecute < 1)
 		throw AForm::GradeTooLowException();
+
 	std::cout << "Constructor for AForm\n";
 	this->sign = false;
 }
@@ -27,12 +22,14 @@ AForm::~AForm()
 AForm::AForm(const AForm &other) : name(other.getName()), gradeSign(other.getGradeSign()), gradeExecute(other.getGradeExecute())
 {
 	std::cout << "Copy Constructor for AForm\n";
-	*this = other;
+
+	this->sign = other.isSigned();
 }
 
 AForm & AForm::operator = (const AForm &other)
 {
 	std::cout << "Copy Assigment Operator for AForm\n";
+
 	this->sign = other.isSigned();
 	return (*this);
 }
@@ -59,12 +56,12 @@ size_t		AForm::getGradeExecute() const
 
 const char* AForm::GradeTooHighException::what() const throw()
 {
-	return ("Grade is too high.\n");
+	return ("Grade is too high.");
 }
 
 const char* AForm::GradeTooLowException::what() const throw()
 {
-	return ("Grade is too low.\n");
+	return ("Grade is too low.");
 }
 
 std::ostream & operator << (std::ostream &os, AForm& AForm)
@@ -81,11 +78,9 @@ void		AForm::beSigned(Bureaucrat& bureaucrat)
 	if (bureaucrat.getGrade() <= this->getGradeSign())
 	{
 		this->sign = true;
-		std::cout << bureaucrat.getName() << " signed " << this->getName() << std::endl;
 	}
 	else
 	{
-		std::cout << bureaucrat.getName() << " couldn’t sign " << this->getName() << " because ";
 		throw AForm::GradeTooLowException();
 	}
 }

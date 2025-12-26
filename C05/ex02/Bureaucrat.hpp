@@ -12,29 +12,29 @@ class Bureaucrat
 {
 	private:
 		const std::string	name;
-		size_t		grade;
+		size_t				grade;
 	public:
-		Bureaucrat();
 		Bureaucrat(std::string name, int grade);
 		~Bureaucrat();
 		Bureaucrat(const Bureaucrat &other);
 		Bureaucrat &operator=(const Bureaucrat &other);
+
 		size_t	getGrade() const;
 		std::string getName() const;
-		void	setGrade(size_t grade);
+
 		void	gradeIncrement();
 		void	gradeDecrement();
+
 		void	signForm(Form& form);
+
 		class GradeTooHighException : public std::exception
 		{
 			public:
-				GradeTooHighException(){}
 				const char* what() const throw();
 		};
 		class GradeTooLowException : public std::exception
 		{
 			public:
-				GradeTooLowException() {}
 				const char* what() const throw();
 		};
 };
