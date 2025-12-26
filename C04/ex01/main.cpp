@@ -35,6 +35,12 @@ int main( void )
 	const Dog *dog2 = new Dog(*dog);
 	Brain *brain1 = dog2->getBrainAddress();
 	brain1->displayIdeas();
+	brain1->setIdea(0, "xxx");
+
+	std::cout << "\ndog ideas: \n";
+	brain->displayIdeas();
+	std::cout << "\ndog2 ideas: \n";
+	brain1->displayIdeas();
 
 	delete(dog);
 	delete(dog2);
