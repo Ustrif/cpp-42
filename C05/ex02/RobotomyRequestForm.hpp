@@ -11,6 +11,8 @@ class RobotomyRequestForm : public AForm
 		RobotomyRequestForm(const RobotomyRequestForm& other);
 		RobotomyRequestForm &operator = (const RobotomyRequestForm& other);
 
+		virtual void executeAction() const;
+
 };
 
 #endif // __ROBOTOMY__
