@@ -2,19 +2,14 @@
 #include <iostream>
 #include <string>
 
-Bureaucrat::Bureaucrat() : name("name")
-{
-	std::cout << "Defualt constructor for Bureaucrat\n";
-	this->setGrade(150);
-}
-
 Bureaucrat::Bureaucrat(std::string name, int grade) : name(name)
 {
 	if (grade > 150)
 		throw (Bureaucrat::GradeTooHighException());
 	if (grade < 1)
 		throw (Bureaucrat::GradeTooLowException());
-	this->setGrade(grade);
+
+	this->grade = grade;
 	std::cout << "Constructor with param for Bureaucrat\n";
 }
 
@@ -23,16 +18,18 @@ Bureaucrat::~Bureaucrat()
 	std::cout << "Destructor for Bureaucrat\n";
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &other) : name(other.getName())
+Bureaucrat::Bureaucrat(const Bureaucrat &other) : name(other.getName()), grade(other.getGrade())
 {
 	std::cout << "Copy Constructor for Bureaucrat\n";
-	*this = other;
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 {
 	std::cout << "Copy Assigment Operator for Bureaucrat\n";
-	this->setGrade(other.getGrade());
+
+	if (this != &other)
+		this->grade = other.grade;
+
 	return (*this);
 }
 
@@ -44,11 +41,6 @@ size_t	Bureaucrat::getGrade() const
 std::string Bureaucrat::getName() const
 {
 	return (this->name);
-}
-
-void	Bureaucrat::setGrade(size_t grade)
-{
-	this->grade = grade;
 }
 
 const char* Bureaucrat::GradeTooHighException::what() const throw()
@@ -63,28 +55,27 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 
 std::ostream& operator << (std::ostream& os, const Bureaucrat& b)
 {
-	os << b.getName() << ", bureaucrat grade " << b.getGrade();
-	return os;
+	os << b.getName() << ", bureaucrat grade " << b.getGrade() << ".";
+
+	return (os);
 }
 
 void	Bureaucrat::gradeIncrement()
 {
-	size_t	lGrade = grade;
-	lGrade++;
-	if (lGrade > 150)
+	if (grade + 1 > 150)
 		throw (Bureaucrat::GradeTooHighException());
-	if (lGrade < 1)
+	if (grade + 1 < 1)
 		throw (Bureaucrat::GradeTooLowException());
+
 	grade++;
 }
 
 void	Bureaucrat::gradeDecrement()
 {
-	size_t	lGrade = grade;
-	lGrade--;
-	if (lGrade > 150)
+	if (grade - 1 > 150)
 		throw (Bureaucrat::GradeTooHighException());
-	if (lGrade < 1)
+	if (grade - 1 < 1)
 		throw (Bureaucrat::GradeTooLowException());
+
 	grade--;
 }
