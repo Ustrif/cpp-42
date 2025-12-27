@@ -1,18 +1,18 @@
-#ifndef __PRESIDENTAL__
-#define __PRESIDENTAL__
+#ifndef __PRESIDENTIAL__
+#define __PRESIDENTIAL__
 
 #include "AForm.hpp"
 
-class PresidentalPardonForm : public AForm
+class PresidentialPardonForm : public AForm
 {
 	public:
-		PresidentalPardonForm(std::string target);
-		~PresidentalPardonForm();
-		PresidentalPardonForm(const PresidentalPardonForm& other);
-		PresidentalPardonForm &operator = (const PresidentalPardonForm& other);
+		PresidentialPardonForm(std::string target);
+		~PresidentialPardonForm();
+		PresidentialPardonForm(const PresidentialPardonForm& other);
+		PresidentialPardonForm &operator = (const PresidentialPardonForm& other);
 
 		virtual void executeAction() const;
 
 };
 
-#endif // __PRESIDENTAL__
+#endif // __PRESIDENTIAL__
