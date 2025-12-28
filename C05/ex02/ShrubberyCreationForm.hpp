@@ -13,6 +13,11 @@ class ShrubberyCreationForm : public AForm
 
 		virtual void executeAction() const;
 
+		class FileError : public std::exception
+		{
+			public:
+				const char* what() const throw();
+		};
 };
 
 #endif // __SHRUBBERY__
