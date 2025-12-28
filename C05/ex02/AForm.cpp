@@ -16,7 +16,7 @@ AForm::AForm(std::string name, int gradeSign, int gradeExecute) : name(name), gr
 
 AForm::~AForm()
 {
-	std::cout << "Default destructor for AForm\n";
+	std::cout << "Destructor for AForm\n";
 }
 
 AForm::AForm(const AForm &other) : name(other.getName()), gradeSign(other.getGradeSign()), gradeExecute(other.getGradeExecute())
