@@ -12,7 +12,6 @@ NAME = bure
 all: $(NAME)
 
 $(NAME): $(SRCS)
-	@echo "Burayi degis."
 	$(CXX) $(FLAGS) $(SRCS) -o $(NAME)
 
 clean:
