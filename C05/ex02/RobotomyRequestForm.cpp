@@ -3,18 +3,18 @@
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm(target, 72, 45)
 {
-	std::cout << "Robotomy Request form constructor\n" << std::endl;
+	std::cout << "Robotomy Request form constructor" << std::endl;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-	std::cout << "Robotomy Request form destructor\n" << std::endl;
+	std::cout << "Robotomy Request form destructor" << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other) 
 : AForm(other.getName(), other.getGradeSign(), other.getGradeExecute())
 {
-	std::cout << "Robotomy Request form copy constructor\n" << std::endl;
+	std::cout << "Robotomy Request form copy constructor" << std::endl;
 }
 
 RobotomyRequestForm &RobotomyRequestForm::operator = (const RobotomyRequestForm& other)
@@ -22,7 +22,7 @@ RobotomyRequestForm &RobotomyRequestForm::operator = (const RobotomyRequestForm&
 	if (this != &other)
 		AForm::operator=(other);
 
-	std::cout << "Robotomy Request form copy assigment operator\n" << std::endl;
+	std::cout << "Robotomy Request form copy assigment operator" << std::endl;
 	return (*this);
 }
 

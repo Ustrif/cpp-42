@@ -4,18 +4,18 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm(target, 145, 137)
 {
-	std::cout << "Shrubbery Creation form constructor\n" << std::endl;
+	std::cout << "Shrubbery Creation form constructor" << std::endl;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-	std::cout << "Shrubbery Creation form destructor\n" << std::endl;
+	std::cout << "Shrubbery Creation form destructor" << std::endl;
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) 
 : AForm(other.getName(), other.getGradeSign(), other.getGradeExecute())
 {
-	std::cout << "Shrubbery Creation form copy constructor\n" << std::endl;
+	std::cout << "Shrubbery Creation form copy constructor" << std::endl;
 }
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator = (const ShrubberyCreationForm& other)
@@ -23,7 +23,7 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator = (const ShrubberyCreatio
 	if (this != &other)
 		AForm::operator=(other);
 
-	std::cout << "Shrubbery Creation form copy assigment operator\n" << std::endl;
+	std::cout << "Shrubbery Creation form copy assigment operator" << std::endl;
 	return (*this);
 }
 
