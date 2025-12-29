@@ -2,7 +2,6 @@
 
 Intern::Intern()
 {
-	number = 0;
 	std::cout << "Default Constructor for Intern" << std::endl;
 }
 
@@ -13,26 +12,16 @@ Intern::~Intern()
 
 Intern::Intern(const Intern& other)
 {
-	this->number = other.getNumber();
+	(void) other;
 	std::cout << "Copy Constructor for Intern" << std::endl;
 }
 
 Intern &Intern::operator = (const Intern& other)
 {
-	this->setNumber(other.getNumber());
+	(void) other;
 	std::cout << "Copy Assigment Operator for Intern" << std::endl;
 
 	return (*this);
-}
-
-int	Intern::getNumber( void ) const 
-{
-	return (this->number);
-}
-
-void	Intern::setNumber( int num )
-{
-	this->number = num;
 }
 
 const char* Intern::NoNameError::what() const throw()
@@ -43,6 +32,21 @@ const char* Intern::NoNameError::what() const throw()
 const char* Intern::UndefinedNameError::what() const throw()
 {
 	return ("Given name is undefined.");
+}
+
+AForm* Intern::CreateShrubberyCreation(std::string& target)
+{
+	return (new ShrubberyCreationForm(target));
+}
+
+AForm* Intern::CreateRobotomyRequest(std::string& target)
+{
+	return (new RobotomyRequestForm(target));
+}
+
+AForm* Intern::CreatePresidentialPardon(std::string& target)
+{
+	return (new PresidentialPardonForm(target));
 }
 
 static std::string	getLower(std::string sentence)
@@ -67,6 +71,13 @@ AForm* Intern::makeForm(std::string formName, std::string formTarget)
 								"ShrubberyCreationForm"
 								};
 
+	AForm* (Intern::*ptrMember[3])(std::string&) =
+	{
+		&Intern::CreateShrubberyCreation,
+		&Intern::CreateRobotomyRequest,
+		&Intern::CreatePresidentialPardon
+	};
+
 	if (formName.empty() || formTarget.empty())
 		throw Intern::NoNameError();
 
@@ -77,20 +88,8 @@ AForm* Intern::makeForm(std::string formName, std::string formTarget)
 		if (!lowerFormName.compare(0, 5, lowerForms, 0, 5))
 		{
 			std::cout << "Intern creates " << forms[i] << std::endl;
-			switch (i)
-			{
-				case 0:
-					return (new PresidentialPardonForm(formTarget));
-					break;
-				case 1:
-					return (new RobotomyRequestForm(formTarget));
-					break;
-				case 2:
-					return (new ShrubberyCreationForm(formTarget));
-					break;
-				default:
-					break;
-			}
+			AForm* form = (this->*ptrMember[i])(formTarget);
+			return (form);
 		}
 	}
 

@@ -11,15 +11,14 @@
 class Intern
 {
 	private:
-		int	number;
+		AForm *CreateShrubberyCreation(std::string& target);
+		AForm *CreateRobotomyRequest(std::string& target);
+		AForm *CreatePresidentialPardon(std::string& target);
 	public:
 		Intern();
 		~Intern();
 		Intern(const Intern& other);
 		Intern &operator = (const Intern& other);
-
-		int		getNumber( void ) const;
-		void	setNumber( int num );
 
 		AForm* makeForm(std::string formName, std::string formTarget);
 
