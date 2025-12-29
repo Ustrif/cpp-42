@@ -26,12 +26,12 @@ class Intern
 		class NoNameError : public std::exception
 		{
 			public:
-				const char* what() const throw();
+				virtual const char* what() const throw();
 		};
 		class UndefinedNameError : public std::exception
 		{
 			public:
-				const char* what() const throw();
+				virtual const char* what() const throw();
 		};
 
 };
