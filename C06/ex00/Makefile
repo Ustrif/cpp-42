@@ -1,4 +1,4 @@
-SRCS = main.cpp ScalarConverter.cpp
+SRCS = main.cpp ScalarConverter.cpp utils.cpp
 CXX = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = convert
