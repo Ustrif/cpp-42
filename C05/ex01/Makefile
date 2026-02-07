@@ -1,6 +1,6 @@
 SRCS = main.cpp Bureaucrat.cpp Form.cpp
 CXX = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+FLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = bure
 
 all: $(NAME)

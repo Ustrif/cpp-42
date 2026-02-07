@@ -1,7 +1,7 @@
-SRCS = main.cpp Bureaucrat.cpp
+SRCS = main.cpp
 CXX = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
-NAME = bure
+NAME = convert
 
 all: $(NAME)
 
