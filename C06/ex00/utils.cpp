@@ -99,7 +99,9 @@ char	findType(const std::string& param)
 		return ('n');
 	else if (isInf(param))
 		return ('l');
-	else if (param.length() == 1 && std::isalpha(param.at(0)))
+	else if (param.length() == 1
+			&& !std::iscntrl(param.at(0))
+			&& !std::isdigit(param.at(0)))
 		return ('c');
 	else if (param.at(param.size() - 1) == 'f')
 		return ('f');
