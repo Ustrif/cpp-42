@@ -10,7 +10,7 @@ class A : public Base
 
 	public:
 		A();
-		~A();
+		virtual ~A();
 		char getType (void) const;
 };
 

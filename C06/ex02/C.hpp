@@ -10,7 +10,7 @@ class C : public Base
 
 	public:
 		C();
-		~C();
+		virtual ~C();
 		char getType (void) const;
 };
 
