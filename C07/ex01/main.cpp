@@ -1,15 +1,6 @@
 #include "iter.hpp"
 #include <iostream>
 
-template<typename T>
-void	iter(const T* arr, const std::size_t len, void (*func)(T))
-{
-	for (std::size_t l = len; l > 0; l--)
-	{
-		func(arr[len - l]);
-	}
-}
-
 static void	printChar(char c)
 {
 	std::cout << c << " ";
