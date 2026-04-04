@@ -1,4 +1,4 @@
-SRCS = main.cpp Base.cpp
+SRCS = main.cpp A.cpp B.cpp C.cpp Base.cpp
 CXX = c++
 FLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = base
