@@ -21,4 +21,7 @@ This module is designed to help you understand subtype polymorphism, abstract cl
 ## C05
 This module is designed to help you understand try/catch and exceptions in C++.
 
+## C06
+This module is designed to help you understand the different types of casting in C++.
+
 ...
