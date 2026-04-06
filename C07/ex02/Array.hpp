@@ -12,7 +12,7 @@ class Array
 		Array(unsigned int n);
 		~Array();
 		Array(const Array& other);
-		Array operator = (const Array& other);
+		Array &operator = (const Array& other);
 
 		std::size_t size( void ) const;
 
