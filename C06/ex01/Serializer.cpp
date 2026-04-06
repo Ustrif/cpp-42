@@ -16,7 +16,7 @@ Serializer::Serializer(const Serializer& other)
 	std::cout << "Serializer Class Copy Constructor!" << std::endl;
 }
 
-Serializer Serializer::operator = (const Serializer& other)
+Serializer &Serializer::operator = (const Serializer& other)
 {
 	(void) other;
 	std::cout << "Serializer Class Copy Assigment Operator!" << std::endl;
