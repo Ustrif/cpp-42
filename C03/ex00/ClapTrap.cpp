@@ -35,7 +35,7 @@ ClapTrap::ClapTrap(const ClapTrap &other)
 	this->energyPoints = other.energyPoints;
 }
 
-ClapTrap ClapTrap::operator=(const ClapTrap &other)
+ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 {
 	std::cout << "ClapTrap assingment copy" << std::endl;
 	this->name = other.name;
